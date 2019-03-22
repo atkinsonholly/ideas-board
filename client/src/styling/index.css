@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'PT Sans',sans-serif;
+  color: #2c0365;
+  min-height: 100vh;
+  background: url("https://global-uploads.webflow.com/5a6b4d7e41e4ab00014b0f44/5ae99b18873cad6bf2dc183d_Tracr_Triangles-03.png") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
