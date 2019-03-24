@@ -3,6 +3,7 @@ import Idea from './Idea';
 import IdeaForm from './IdeaForm';
 import Notification from './Notification';
 import Options from './Options';
+import Searchbar from './Searchbar';
 import Adapter from '../adapters/API';
 import ls from 'local-storage';
 
@@ -112,7 +113,10 @@ class IdeasContainer extends Component {
           <img className="add_button" onClick={this.newIdea} src={require("../images/add.png")} alt="add idea"/>
           <Notification notification= {this.state.notification}/>
         </div>
-        <Options onChangeType={this.onChangeType} setFilter={this.setFilter}/>
+        <div className="options_container">
+          <Options onChangeType={this.onChangeType}/>
+          <Searchbar setFilter={this.setFilter}/>
+        </div>
         <div className="ideas_container">
           <div className="ideas_tiles_container">
             {this.sortIdeas().map(idea =>
