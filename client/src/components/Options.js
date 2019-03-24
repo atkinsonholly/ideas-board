@@ -3,12 +3,6 @@ import React, {  Component } from 'react';
 class Options extends Component {
   // Sort and filter functionality
 
-  moveCaretAtEnd = (event) => {
-    let temp_value = event.target.value
-    event.target.value = ''
-    event.target.value = temp_value
-  }
-
   render() {
     return (
       <div className="options_container">
@@ -31,9 +25,7 @@ class Options extends Component {
                 placeholder="Enter search term"
                 onChange={event => this.props.setFilter(event.target.value)}
                 value={this.props.search}
-                autoFocus
-                onFocus={this.moveCaretAtEnd}
-                size="45"
+                size="20"
                />
             </div>
           </form>
