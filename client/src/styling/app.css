@@ -114,7 +114,7 @@
   height: 130px;
 }
 
-input {
+.idea input {
   max-width: 258px;
   max-height: 30px;
   margin-top: 18.720px;
@@ -125,7 +125,6 @@ input {
   font-family: inherit;
   font-size: inherit;
   color: #2c0365;
-  font-size: 1.17em;
   display: block;
   font-size: 1.17em;
   margin-block-start: 1em;
@@ -194,4 +193,57 @@ textarea:focus {
 
 .idea:hover .delete_button{
   visibility: visible;
+}
+
+.options_container{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 10px;
+}
+
+.sort_container {
+  display: flex;
+  width: 300px;
+}
+
+.select_bar {
+  margin-top: 18.720px;
+  margin-bottom: 18.720px;
+  margin-left: 5px;
+  font-size: 1em;
+  font-family: inherit;
+  color: inherit;
+}
+
+.filter_container {
+  min-width: 300px;
+}
+
+.filter_container form {
+  display: flex;
+  min-width: 300px;
+}
+
+.sort_header {
+  margin-right: 0;
+  max-width: 100px;
+}
+
+.search_input {
+  line-height: 24px;
+}
+
+.search_bar {
+  margin-top: 18.720px;
+  margin-bottom: 18.720px;
+  margin-left: 5px;
+  max-width: 170px;
+  background: none;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: #0043ba;
+  font-size: 1em;
+  padding: 0;
+  vertical-align: middle;
 }

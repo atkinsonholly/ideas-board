@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Idea from './Idea';
 import IdeaForm from './IdeaForm';
 import Notification from './Notification';
+import Options from './Options';
 import Adapter from '../adapters/API';
 import ls from 'local-storage';
 
@@ -10,7 +11,9 @@ class IdeasContainer extends Component {
   state = {
     ideas: [],
     currentIdeaId: null,
-    notification: ''
+    notification: '',
+    type: 'creationDate',
+    filter: ''
   }
 
   componentDidMount() {
@@ -79,16 +82,40 @@ class IdeasContainer extends Component {
     })
   }
 
+  onChangeType = (value) => {
+    this.setState({
+      type: value
+    })
+  }
+
+  setFilter = (value) => {
+    this.setState({
+      filter: value.toUpperCase()
+    })
+  }
+
+  sortIdeas = () => {
+    let newIdeas = [...this.state.ideas]
+    if (this.state.type === "creationDate") {
+      newIdeas = newIdeas.sort(function(a, b){return b.id - a.id});
+    }
+    if (this.state.type === "alphabetical") {
+      newIdeas =  newIdeas.sort((a,b) => a.title.localeCompare(b.title));
+    }
+    return newIdeas.filter(idea => idea.title.toUpperCase().includes(this.state.filter))
+  }
+
   render() {
     return (
       <div className="ideas_page">
         <div className="add_button_wrapper">
           <img className="add_button" onClick={this.newIdea} src={require("../images/add.png")} alt="add idea"/>
           <Notification notification= {this.state.notification}/>
-      </div>
+        </div>
+        <Options onChangeType={this.onChangeType} setFilter={this.setFilter}/>
         <div className="ideas_container">
           <div className="ideas_tiles_container">
-            {this.state.ideas.map(idea =>
+            {this.sortIdeas().map(idea =>
               this.state.currentIdeaId === idea.id ?
                 <IdeaForm
                   key={idea.id}
