@@ -24,7 +24,6 @@ class Options extends Component {
                 type="text"
                 placeholder="Enter search term"
                 onChange={event => this.props.setFilter(event.target.value)}
-                value={this.props.search}
                 size="20"
                />
             </div>
